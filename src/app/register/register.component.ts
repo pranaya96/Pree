@@ -20,7 +20,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(userEmail, userPassword) {
     this.af.auth
       .createUserWithEmailAndPassword(userEmail, userPassword)
-      .then(() => console.log("sucess"), this.router.navigate["/login"])
+      .then(response => {
+        console.log(response);
+        this.router.navigate(["login"]);
+      })
       .catch(error => console.log(error));
   }
 }

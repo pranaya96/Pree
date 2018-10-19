@@ -1,14 +1,25 @@
-<div class="register">
-  <h1>Register</h1>
-  <form>
-    <div class="form-group">
-      <label for='Email'> Email </label>
-      <input type="text" class="form-control" [(ngModel)]="userEmail" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="text" class="form-control" [(ngModel)]="userPassword" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-sucess" (click)="onSubmit(userEmail, userPassword)">Sign Up</button>
-  </form>
+<div class="register" fxLayoutAlign="center" fxLayout.xs="column">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="registerForm">
+        <div class="registerEmailHolder">
+          <mat-form-field class="registerUserEmail">
+            <input matInput placeholder="Enter your Email" [(ngModel)]="userEmail" name="email" required>
+          </mat-form-field>
+        </div>
+        <div class=registerPasswordHolder>
+          <mat-form-field class="registerPassword">
+            <input matInput placeholder="Enter your Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="userPassword"
+              name="password" required>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onSubmit(userEmail, userPassword)" color="primary">Sign Up</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

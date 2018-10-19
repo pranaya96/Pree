@@ -4,16 +4,16 @@
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <form class="form">
-                <div class="emailHolder">
-                    <mat-form-field class="userEmail">
+            <form class="loginForm">
+                <div class="loginEmailHolder">
+                    <mat-form-field class="LoginUserEmail">
                         <input matInput placeholder="Email or Username" [(ngModel)]="user.email" name="username"
                             required>
                         <mat-error *ngIf="user.invalid">{{errorMessage}}</mat-error>
                     </mat-form-field>
                 </div>
-                <div class=passwordHolder>
-                    <mat-form-field class="password">
+                <div class=loginPasswordHolder>
+                    <mat-form-field class="loginPassword">
                         <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password"
                             name="password" required>
                     </mat-form-field>
