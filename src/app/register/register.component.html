@@ -1,3 +1,14 @@
-<p>
-  register works!
-</p>
+<div class="register">
+  <h1>Register</h1>
+  <form>
+    <div class="form-group">
+      <label for='Email'> Email </label>
+      <input type="text" class="form-control" [(ngModel)]="userEmail" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" [(ngModel)]="userPassword" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-sucess" (click)="onSubmit(userEmail, userPassword)">Sign Up</button>
+  </form>
+</div>

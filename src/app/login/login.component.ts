@@ -1,71 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { AppRoutingModule } from '../app-routing.module'
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../services/auth.service";
+import { AppRoutingModule } from "../app-routing.module";
+import { AngularFireAuth } from "angularfire2/auth";
+import { Router } from "@angular/router";
+import { auth } from "firebase/auth";
+import { error } from "protractor";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
+export class LoginComponent implements OnInit {
+  hide = true;
+  user: any;
+  errorMessage: any;
+  constructor(private authService: AuthService, private router: Router) {
+    this.user = {
+      name: "",
+      email: "",
+      invalid: "bye",
+      loginSuccess: true
+    };
+  }
+  ngOnInit() {}
 
-
-export class LoginComponent implements OnInit{
-  public authService: AuthService;
-  public router: AppRoutingModule;
-  user = {
-    email: '',
-    password: ''
-  };
-
-  signInWithEmail() {
-    this.authService.signInRegular(this.user.email, this.user.password)
-       .then((res) => {
-          console.log(res);
-          //this.router.routes(['user']);
-       })
-       .catch((err) => console.log('error: ' + err));
-       
- }
-
- signInWithGoogle() {
-  this.authService.signInWithGoogle()
-  .then((res) => { 
-      //this.router.navigate(['dashboard'])
-    })
-  .catch((err) => console.log(err));
-}
-
-
-
-  
-  constructor() {
-    
-   }
-  
-  ngOnInit() {
-
-    
+  signInWithEmail(email, password) {
+    this.authService
+      .signInRegular(this.user.email, this.user.password)
+      .then(response => {
+        let credential = response.credential;
+        let user = response.user;
+        console.log(response);
+        this.router.navigate(["user"]);
+      })
+      .catch(error => {
+        this.user.loginSuccess = false;
+        this.errorMessage = error.message;
+      });
   }
 
+  signInWithGoogle() {
+    this.authService
+      .signInWithGoogle()
+      .then(response => {
+        this.router.navigate(["user"]);
+      })
+      .catch(err => console.log(err));
+  }
+
+  signInWithFacebook() {
+    this.authService
+      .signInWithFacebook()
+      .then(response => {
+        this.router.navigate(["user"]);
+      })
+      .catch(err => console.log(err));
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

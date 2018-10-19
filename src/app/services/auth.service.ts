@@ -1,58 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
-import { Observable } from 'rxjs';
-
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from "firebase";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;  
-  private userDetails: firebase.User = null;
-
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
-    this.user = _firebaseAuth.authState;
-
-    this.user.subscribe(
-      (user) => {
-        if (user) {
-          this.userDetails = user;
-          console.log(this.userDetails);
-        }
-        else {
-          this.userDetails = null;
-        }
-      }
-    );
-  }
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
   signInRegular(email, password) {
-     const credential = firebase.auth.EmailAuthProvider.credential( email, password );
-  return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   signInWithGoogle() {
-    return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
+    let provider = new firebase.auth.GoogleAuthProvider();
+    return this.afAuth.auth.signInWithPopup(provider);
   }
 
-  isLoggedIn() {
-    if (this.userDetails == null ) {
-        return false;
-      } else {
-        return true;
-      }
-    }
+  signInWithFacebook() {
+    let provider = new firebase.auth.FacebookAuthProvider();
+    return this.afAuth.auth.signInWithPopup(provider);
+  }
+
   logout() {
-      this._firebaseAuth.auth.signOut()
-      .then((res) => this.router.navigate(['/']));
-    }
-
-
-    
+    this.afAuth.auth.signOut().then(res => this.router.navigate(["/"]));
   }
+}

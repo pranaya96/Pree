@@ -1,9 +1,7 @@
-body
-{
+body {
   background-color: #fcfcfc;
 }
-.center-div
-{
+.center-div {
   position: absolute;
   margin: auto;
   top: 0;
