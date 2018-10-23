@@ -21,13 +21,15 @@ import {
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
+import { StartUpComponent } from './start-up/start-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    StartUpComponent
   ],
   imports: [
     MatButtonModule,
