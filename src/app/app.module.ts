@@ -15,13 +15,14 @@ import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
+import { StartUpComponent } from './start-up/start-up.component';
 import {
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
-import { StartUpComponent } from './start-up/start-up.component';
+
 
 @NgModule({
   declarations: [
