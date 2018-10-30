@@ -25,7 +25,7 @@ import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
-import { AddEventComponent } from './user/MyBusinessProfile/add-event/add-event.component';
+import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 
 @NgModule({
   declarations: [
