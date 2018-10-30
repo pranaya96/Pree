@@ -20,9 +20,10 @@ import {
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
-import { HeaderComponent } from './user/header/header.component';
-import { HomeComponent } from './user/home/home.component';
-import { SettingsComponent } from './user/settings/settings.component';
+import { HeaderComponent } from "./user/header/header.component";
+import { HomeComponent } from "./user/home/home.component";
+import { SettingsComponent } from "./user/settings/settings.component";
+import { StartUpComponent } from "./start-up/start-up.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SettingsComponent } from './user/settings/settings.component';
     UserComponent,
     HeaderComponent,
     HomeComponent,
-    SettingsComponent
+    SettingsComponent,
+    StartUpComponent
   ],
   imports: [
     MatButtonModule,
