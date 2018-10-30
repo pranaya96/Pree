@@ -14,16 +14,21 @@ import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
+import { StartUpComponent } from './start-up/start-up.component';
 import {
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
+<<<<<<< HEAD
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { StartUpComponent } from "./start-up/start-up.component";
+=======
+
+>>>>>>> e0c1d5248969dddb4f8155f80cdde1c2dfb05e49
 
 @NgModule({
   declarations: [
