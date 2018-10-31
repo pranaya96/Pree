@@ -49,7 +49,7 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 		  navigator.geolocation.getCurrentPosition(position => {
 			  this.lat = position.coords.latitude;
 			  this.lng = position.coords.longitude;
-			  this.geo.getLocations(100, [this.lat, this.lng])
+			  this.geo.getLocations(80, [this.lat, this.lng])
 		  });
 	  }
   }
