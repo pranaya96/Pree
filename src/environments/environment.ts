@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   firebase: {
 	googleMapsKey: "AIzaSyDK42Pv2GVQedC3c0HEntn8Dh1cDPVBXHE",
-    apiKey: "AIzaSyCrEPdcBxwq_OX9LQiQ_PVoQdS5YPUGzNg",
-    authDomain: "pree-664a2.firebaseapp.com",
-    databaseURL: "https://pree-664a2.firebaseio.com",
-    projectId: "pree-664a2",
-    storageBucket: "pree-664a2.appspot.com",
-    messagingSenderId: "254429228252",
+    apiKey: "AIzaSyBaW5O0sRjGJ0nadHDuQhiOkzZ74Y6V7EY",
+    authDomain: "pree-27bcd.firebaseapp.com",
+    databaseURL: "https://pree-27bcd.firebaseio.com",
+    projectId: "pree-27bcd",
+    storageBucket: "pree-27bcd.appspot.com",
+    messagingSenderId: "604205270148"
   }
 };
 
