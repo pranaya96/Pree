@@ -16,6 +16,7 @@ import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
 import { StartUpComponent } from './start-up/start-up.component';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+
 import {
   MatCardModule,
   MatFormFieldModule,
@@ -29,7 +30,8 @@ import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { RegisterBusinessComponent } from './register-business/register-business.component'; 
-
+import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
+import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { RegisterBusinessComponent } from './register-business/register-business
     HomeComponent,
     SettingsComponent,
     StartUpComponent,
-    RegisterBusinessComponent
+    RegisterBusinessComponent,
+    MyBusinessProfileComponent,
+    AddEventComponent
   ],
   imports: [
     MatButtonModule,
