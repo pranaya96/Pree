@@ -7,6 +7,8 @@ import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { StartUpComponent } from "./start-up/start-up.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
+import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
+import { EventsComponent } from "./user/home/events/events.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "/start-up", pathMatch: "full" },
@@ -17,9 +19,20 @@ export const routes: Routes = [
     component: UserComponent,
     children: [
       { path: "", redirectTo: "/home", pathMatch: "full" },
-      { path: "home", component: HomeComponent },
+      {
+        path: "home",
+        component: HomeComponent,
+        children: [{ path: "events", component: EventsComponent }]
+      },
       { path: "settings", component: SettingsComponent },
-      { path: "businessProfile", component: MyBusinessProfileComponent }
+      {
+        path: "my-business-profile",
+        component: MyBusinessProfileComponent,
+        children: [
+          { path: "", redirectTo: "../home/events", pathMatch: "full" },
+          { path: "add-event", component: AddEventComponent }
+        ]
+      }
     ]
   },
   { path: "start-up", component: StartUpComponent }

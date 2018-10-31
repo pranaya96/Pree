@@ -13,4 +13,12 @@
       </p>
     </mat-card-content>
   </mat-card>
+  <div>
+    <button mat-raised-button (click)="addEvent()" [disabled]="hide" color="primary">Add Event</button>
+  </div>
+  <div class='eventContainer'>
+    <router-outlet>
+      <app-add-event *ngIf="hide"></app-add-event>
+    </router-outlet>
+  </div>
 </div>

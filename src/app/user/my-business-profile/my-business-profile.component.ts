@@ -6,7 +6,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./my-business-profile.component.css"]
 })
 export class MyBusinessProfileComponent implements OnInit {
+  hide: boolean = true;
   constructor() {}
-
   ngOnInit() {}
+  addEvent() {
+    this.hide = false;
+  }
 }

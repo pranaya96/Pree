@@ -16,16 +16,19 @@ import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
 import { StartUpComponent } from "./start-up/start-up.component";
 import {
+  MatDatepickerModule,
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatNativeDateModule
 } from "@angular/material";
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
-import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
+import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
+import { EventsComponent } from "./user/home/events/events.component";
 
 @NgModule({
   declarations: [
@@ -38,9 +41,12 @@ import { AddEventComponent } from './user/my-business-profile/add-event/add-even
     SettingsComponent,
     StartUpComponent,
     MyBusinessProfileComponent,
-    AddEventComponent
+    AddEventComponent,
+    EventsComponent
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
