@@ -21,14 +21,11 @@ import {
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
-<<<<<<< HEAD
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
-import { StartUpComponent } from "./start-up/start-up.component";
-=======
-
->>>>>>> e0c1d5248969dddb4f8155f80cdde1c2dfb05e49
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +36,8 @@ import { StartUpComponent } from "./start-up/start-up.component";
     HeaderComponent,
     HomeComponent,
     SettingsComponent,
-    StartUpComponent
+    StartUpComponent,
+    GoogleMapComponent
   ],
   imports: [
     MatButtonModule,
@@ -53,7 +51,10 @@ import { StartUpComponent } from "./start-up/start-up.component";
     AngularFireDatabaseModule,
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+	AgmCoreModule.forRoot({
+		apiKey: environment.firebase.googleMapsKey
+	})
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

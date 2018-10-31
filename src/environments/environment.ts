@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
+	googleMapsKey: "AIzaSyDK42Pv2GVQedC3c0HEntn8Dh1cDPVBXHE",
     apiKey: "AIzaSyCrEPdcBxwq_OX9LQiQ_PVoQdS5YPUGzNg",
     authDomain: "pree-664a2.firebaseapp.com",
     databaseURL: "https://pree-664a2.firebaseio.com",
     projectId: "pree-664a2",
     storageBucket: "pree-664a2.appspot.com",
-    messagingSenderId: "254429228252"
+    messagingSenderId: "254429228252",
   }
 };
 
