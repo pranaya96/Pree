@@ -6,6 +6,7 @@ import { UserComponent } from "./user/user.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { StartUpComponent } from "./start-up/start-up.component";
+import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "/start-up", pathMatch: "full" },
@@ -17,7 +18,8 @@ export const routes: Routes = [
     children: [
       { path: "", redirectTo: "home", pathMatch: "full" },
       { path: "home", component: HomeComponent },
-      { path: "settings", component: SettingsComponent }
+      { path: "settings", component: SettingsComponent },
+      { path: "businessProfile", component: MyBusinessProfileComponent }
     ]
   },
   { path: "start-up", component: StartUpComponent }

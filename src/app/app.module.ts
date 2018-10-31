@@ -14,7 +14,7 @@ import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
-import { StartUpComponent } from './start-up/start-up.component';
+import { StartUpComponent } from "./start-up/start-up.component";
 import {
   MatCardModule,
   MatFormFieldModule,
@@ -26,6 +26,8 @@ import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { AgmCoreModule } from '@agm/core';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
+import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { GoogleMapComponent } from './google-map/google-map.component';
     HomeComponent,
     SettingsComponent,
     StartUpComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    MyBusinessProfileComponent,
+    AddEventComponent,
   ],
   imports: [
     MatButtonModule,
