@@ -1,0 +1,9 @@
+.profile-container {
+  padding: 25px 500px;
+  max-width: 500px;
+  max-height: 500px;
+}
+.profile-cotainer .image-container {
+  max-height: 500px;
+  max-width: 500px;
+}

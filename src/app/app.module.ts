@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { AngularFireModule } from "angularfire2";
@@ -15,14 +14,18 @@ import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
-import { StartUpComponent } from './start-up/start-up.component';
+import { StartUpComponent } from "./start-up/start-up.component";
 import {
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
-
+import { HeaderComponent } from "./user/header/header.component";
+import { HomeComponent } from "./user/home/home.component";
+import { SettingsComponent } from "./user/settings/settings.component";
+import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
+import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,15 @@ import {
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    StartUpComponent
+    HeaderComponent,
+    HomeComponent,
+    SettingsComponent,
+    StartUpComponent,
+    MyBusinessProfileComponent,
+    AddEventComponent
   ],
   imports: [
     MatButtonModule,
-    FlexLayoutModule,
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,

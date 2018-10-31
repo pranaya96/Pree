@@ -1,0 +1,32 @@
+[1mdiff --cc src/app/app.module.ts[m
+[1mindex fc454cb,a30b697..0000000[m
+[1m--- a/src/app/app.module.ts[m
+[1m+++ b/src/app/app.module.ts[m
+[36m@@@ -20,9 -21,7 +20,13 @@@[m [mimport [m
+    MatButtonModule,[m
+    MatInputModule[m
+  } from "@angular/material";[m
+[32m++<<<<<<< HEAD[m
+[32m +import { HeaderComponent } from './user/header/header.component';[m
+[32m +import { HomeComponent } from './user/home/home.component';[m
+[32m +import { SettingsComponent } from './user/settings/settings.component';[m
+[32m++=======[m
+[32m+ import { StartUpComponent } from './start-up/start-up.component';[m
+[32m++>>>>>>> 138fe4a536ad08595a8616644a3814433a6d8491[m
+  [m
+  @NgModule({[m
+    declarations: [[m
+[36m@@@ -30,9 -29,7 +34,13 @@@[m
+      LoginComponent,[m
+      RegisterComponent,[m
+      UserComponent,[m
+[32m++<<<<<<< HEAD[m
+[32m +    HeaderComponent,[m
+[32m +    HomeComponent,[m
+[32m +    SettingsComponent[m
+[32m++=======[m
+[32m+     StartUpComponent[m
+[32m++>>>>>>> 138fe4a536ad08595a8616644a3814433a6d8491[m
+    ],[m
+    imports: [[m
+      MatButtonModule,[m

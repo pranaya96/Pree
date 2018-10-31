@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
     this.user = {
       name: "",
       email: "",
-      invalid: "bye",
       loginSuccess: true
     };
   }
