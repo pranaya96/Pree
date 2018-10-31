@@ -15,20 +15,21 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
 import { StartUpComponent } from './start-up/start-up.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import {
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
+
 } from "@angular/material";
-<<<<<<< HEAD
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
-import { StartUpComponent } from "./start-up/start-up.component";
-=======
+import { RegisterBusinessComponent } from './register-business/register-business.component'; 
 
->>>>>>> e0c1d5248969dddb4f8155f80cdde1c2dfb05e49
 
 @NgModule({
   declarations: [
@@ -39,18 +40,24 @@ import { StartUpComponent } from "./start-up/start-up.component";
     HeaderComponent,
     HomeComponent,
     SettingsComponent,
-    StartUpComponent
+    StartUpComponent,
+    RegisterBusinessComponent
   ],
   imports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatCardModule,
+    MatOptionModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     RouterModule.forRoot(routes)
