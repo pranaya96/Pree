@@ -26,6 +26,7 @@ import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
 import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
+import { SetDelComponent } from './user/settings/set-del/set-del.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddEventComponent } from './user/my-business-profile/add-event/add-even
     SettingsComponent,
     StartUpComponent,
     MyBusinessProfileComponent,
-    AddEventComponent
+    AddEventComponent,
+    SetDelComponent
   ],
   imports: [
     MatButtonModule,
