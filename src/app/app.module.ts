@@ -14,16 +14,24 @@ import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app-routing.module";
-import { StartUpComponent } from "./start-up/start-up.component";
+import { StartUpComponent } from './start-up/start-up.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 import {
   MatCardModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
+
 } from "@angular/material";
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { RegisterBusinessComponent } from './register-business/register-business.component'; 
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
 import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 import { SetDelComponent } from './user/settings/set-del/set-del.component';
@@ -38,6 +46,8 @@ import { SetDelComponent } from './user/settings/set-del/set-del.component';
     HomeComponent,
     SettingsComponent,
     StartUpComponent,
+    GoogleMapComponent,
+    RegisterBusinessComponent,
     MyBusinessProfileComponent,
     AddEventComponent,
     SetDelComponent
@@ -45,16 +55,24 @@ import { SetDelComponent } from './user/settings/set-del/set-del.component';
   imports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatCardModule,
+    MatOptionModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+	AgmCoreModule.forRoot({
+		apiKey: environment.firebase.googleMapsKey
+	})
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
