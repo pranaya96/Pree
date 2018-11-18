@@ -2,16 +2,15 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
 import { UserServiceService } from "src/app/services/user-service.service";
 import { Event } from "../../../DataModels/event";
-
+import { eventNames } from "cluster";
 @Component({
-  selector: "app-add-event",
-  templateUrl: "./add-event.component.html",
-  styleUrls: ["./add-event.component.css"]
+  selector: "app-events",
+  templateUrl: "./events.component.html",
+  styleUrls: ["./events.component.css"]
 })
-export class AddEventComponent implements OnInit {
+export class EventsComponent implements OnInit {
   event: Event[];
-  eventName: string;
-  myImage: HTMLElement;
+  eventName: Iterable<Event>;
 
   constructor(
     public af: AngularFireDatabase,
@@ -21,10 +20,10 @@ export class AddEventComponent implements OnInit {
   ngOnInit() {
     this.userService.getEvents().subscribe(events => {
       this.event = events;
-      this.eventName = this.event["1"]["EventName"];
+      this.eventName = this.event.values();
+      console.log(this.eventName);
       console.log("event list works");
       console.log(this.event);
-      console.log(this.eventName);
     });
   }
 }

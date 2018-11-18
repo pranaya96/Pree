@@ -1,3 +1,73 @@
-<p>
-  add-event works!
-</p>
+<div>
+  <div class="form-expansion-panel">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Add Events </mat-panel-title>
+          <mat-panel-description>
+            Create an event to post
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="eventContainer">
+          <form class="eventForm">
+            <mat-form-field class="event-full-width">
+              <input matInput placeholder="Event Name" />
+            </mat-form-field>
+            <table class="event-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="event-full-width">
+                    <input
+                      matInput
+                      placeholder="Event Date"
+                      [matDatepicker]="picker"
+                    />
+                    <mat-datepicker-toggle
+                      matSuffic
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Event time" />
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+
+            <mat-form-field class="event-full-width">
+              <input matInput placeholder="Address" />
+            </mat-form-field>
+            <mat-form-field class="event-full-width">
+              <input matInput placeholder="Event Type" />
+            </mat-form-field>
+            <div clas="descriptionContainer">
+              <mat-form-field class="event-full-width">
+                <input matInput placeholder="Event Description" />
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <!--
+    <div class="added-event-container">
+      <mat-card *ngFor="let sevent of event">
+        <mat-card-header>
+          <mat-card-title>{{ eventName | async }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ sevent.EventDate | async }}</p>
+          <p>{{ sevent.EventAddress | async }}</p>
+          <p>{{ sevent.EventTime | async }}</p>
+          <p>{{ sevent.EventType | async }}</p>
+          <p>{{ sevent.EventDescription | async }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  -->
+</div>

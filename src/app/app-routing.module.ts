@@ -6,22 +6,39 @@ import { UserComponent } from "./user/user.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { StartUpComponent } from "./start-up/start-up.component";
-import {RegisterBusinessComponent} from "./register-business/register-business.component";
+import { RegisterBusinessComponent } from "./register-business/register-business.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
+import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
+import { EventsComponent } from "./user/home/events/events.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "/start-up", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  {path: "register-business", component:RegisterBusinessComponent},
+  { path: "register-business", component: RegisterBusinessComponent },
   {
     path: "user",
     component: UserComponent,
     children: [
-      { path: "", redirectTo: "home", pathMatch: "full" },
-      { path: "home", component: HomeComponent },
+      { path: "", redirectTo: "/home", pathMatch: "full" },
+      {
+        path: "home",
+        component: HomeComponent,
+        children: [
+          { path: "", redirectTo: "/events", pathMatch: "full" },
+          { path: "events", component: EventsComponent }
+        ]
+      },
+
       { path: "settings", component: SettingsComponent },
-      { path: "businessProfile", component: MyBusinessProfileComponent }
+      {
+        path: "my-business-profile",
+        component: MyBusinessProfileComponent,
+        children: [
+          { path: "", redirectTo: "../home/events", pathMatch: "full" },
+          { path: "add-event", component: AddEventComponent }
+        ]
+      }
     ]
   },
   { path: "start-up", component: StartUpComponent }
