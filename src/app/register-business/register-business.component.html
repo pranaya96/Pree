@@ -8,7 +8,7 @@
        
         <div class="registerNameHolder">
           <mat-form-field class="registerUserName">
-            <input matInput placeholder="Full Name" [(ngModel)]="fullName" name="fullName" required>
+            <input matInput placeholder="Business Name" [(ngModel)]="fullName" name="fullName" required>
           </mat-form-field>
         </div>
         
@@ -24,6 +24,21 @@
           </mat-form-field>
         </div>
 
+        <div class="registerBusinessTypeHolder">
+          <mat-form-field class="registerUserBusinessType">
+              <mat-select placeholder="Business Type" [(ngModel)]="userBusinessType" name="businessType">
+                  <mat-option *ngFor="let businessType of businessTypes" [value]="businessType.value">
+                    {{businessType.viewValue}}
+                  </mat-option>
+                </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="registerBusinessDescriptionHolder">
+            <mat-form-field class="registerUserBusinessDescription">
+                <textarea matInput placeholder="Business Description"[(ngModel)]="userBusinessDescription" name="businessDescription" required ></textarea>
+            </mat-form-field>
+          </div>
 
         <div class="registerEmailHolder">
           <mat-form-field class="registerUserEmail">

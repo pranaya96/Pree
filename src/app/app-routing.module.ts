@@ -6,6 +6,7 @@ import { UserComponent } from "./user/user.component";
 import { HomeComponent } from "./user/home/home.component";
 import { SettingsComponent } from "./user/settings/settings.component";
 import { StartUpComponent } from "./start-up/start-up.component";
+import { RegisterBusinessComponent } from "./register-business/register-business.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
 import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
 import { EventsComponent } from "./user/home/events/events.component";
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: "", redirectTo: "/start-up", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "register-business", component: RegisterBusinessComponent },
   {
     path: "user",
     component: UserComponent,
@@ -22,8 +24,12 @@ export const routes: Routes = [
       {
         path: "home",
         component: HomeComponent,
-        children: [{ path: "events", component: EventsComponent }]
+        children: [
+          { path: "", redirectTo: "/events", pathMatch: "full" },
+          { path: "events", component: EventsComponent }
+        ]
       },
+
       { path: "settings", component: SettingsComponent },
       {
         path: "my-business-profile",
