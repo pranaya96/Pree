@@ -1,14 +1,14 @@
 <div class="added-event-container">
   <mat-card *ngFor="let sevent of event">
     <mat-card-header>
-      <mat-card-title>{{ eventName | async }}</mat-card-title>
+      <mat-card-title>{{ sevent.EventName }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>{{ sevent.EventDate | async }}</p>
-      <p>{{ sevent.EventAddress | async }}</p>
-      <p>{{ sevent.EventTime | async }}</p>
-      <p>{{ sevent.EventType | async }}</p>
-      <p>{{ sevent.EventDescription | async }}</p>
+      <p>{{ sevent.EventDate }}</p>
+      <p>{{ sevent.EventAddress }}</p>
+      <p>{{ sevent.EventTime }}</p>
+      <p>{{ sevent.EventType }}</p>
+      <p>{{ sevent.EventDescription }}</p>
     </mat-card-content>
   </mat-card>
 </div>

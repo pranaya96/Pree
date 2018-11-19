@@ -47,7 +47,7 @@ import { EventsComponent } from "./user/home/events/events.component";
     HomeComponent,
     SettingsComponent,
     StartUpComponent,
-    // GoogleMapComponent,
+    GoogleMapComponent,
     RegisterBusinessComponent,
     MyBusinessProfileComponent,
     AddEventComponent,
@@ -73,7 +73,7 @@ import { EventsComponent } from "./user/home/events/events.component";
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: environment.firebase.googleMapsKey
     })

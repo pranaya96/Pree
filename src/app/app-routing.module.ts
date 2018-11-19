@@ -21,21 +21,13 @@ export const routes: Routes = [
     component: UserComponent,
     children: [
       { path: "", redirectTo: "/home", pathMatch: "full" },
-      {
-        path: "home",
-        component: HomeComponent,
-        children: [
-          { path: "", redirectTo: "/events", pathMatch: "full" },
-          { path: "events", component: EventsComponent }
-        ]
-      },
-
+      { path: "home", component: HomeComponent },
       { path: "settings", component: SettingsComponent },
       {
         path: "my-business-profile",
         component: MyBusinessProfileComponent,
         children: [
-          { path: "", redirectTo: "../home/events", pathMatch: "full" },
+          { path: "", redirectTo: "/add-event", pathMatch: "full" },
           { path: "add-event", component: AddEventComponent }
         ]
       }

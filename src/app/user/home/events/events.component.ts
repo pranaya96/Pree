@@ -9,9 +9,8 @@ import { eventNames } from "cluster";
   styleUrls: ["./events.component.css"]
 })
 export class EventsComponent implements OnInit {
-  event: Event[];
-  eventName: Iterable<Event>;
-
+  event: Array<any[]>;
+  eventName: String;
   constructor(
     public af: AngularFireDatabase,
     public userService: UserServiceService
@@ -20,10 +19,12 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.userService.getEvents().subscribe(events => {
       this.event = events;
-      this.eventName = this.event.values();
-      console.log(this.eventName);
       console.log("event list works");
       console.log(this.event);
+      console.log(this.event[0]);
+      (error: any) => {
+        console.log("error", error);
+      };
     });
   }
 }
