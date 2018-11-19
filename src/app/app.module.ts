@@ -13,8 +13,10 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from "./services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { routes } from "./app-routing.module";
 import { StartUpComponent } from "./start-up/start-up.component";
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import {
   MatDatepickerModule,
@@ -66,8 +68,10 @@ import { EventsComponent } from "./user/home/events/events.component";
     MatCardModule,
     MatExpansionModule,
     MatOptionModule,
+	MatCheckboxModule,
     BrowserModule,
     BrowserAnimationsModule,
+	NgxPaginationModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,

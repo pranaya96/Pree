@@ -11,6 +11,7 @@ import { eventNames } from "cluster";
 export class EventsComponent implements OnInit {
   event: Array<any[]>;
   eventName: String;
+  numPerPage:number =10;
   constructor(
     public af: AngularFireDatabase,
     public userService: UserServiceService
@@ -27,4 +28,18 @@ export class EventsComponent implements OnInit {
       };
     });
   }
+  
+  moreResults(){
+    this.numPerPage = this.numPerPage + 10;
+  }
+  lessResults(){
+    if(this.numPerPage > 10){
+      this.numPerPage = this.numPerPage - 10;
+    }
+    else{
+    this.numPerPage = 10
+  }
+  
+  
+ 
 }
