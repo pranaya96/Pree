@@ -18,7 +18,7 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
   ngOnInit() {
 	  this.getUserLocation()
 	  this.subscription = this.geo.hits
-        .subscribe(hits => this.markers = hits)
+          .subscribe(hits => this.markers = hits)
 	  this.seedDatabase()
 	  
   }
@@ -29,11 +29,11 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
   
   private seedDatabase() {
     let dummyPoints = [
-      [37.9, -77.1],
-      [38.7, -77.2],
-      [38.1, -77.3],
-      [38.3, -77.0],
-      [38.7, -122.1]
+      [38.1, -77.1],
+      [38.9, -77.2],
+      [38.3, -77.3],
+      [38.5, -77.0],
+      [37.7, -77.1]
     ]
 
     dummyPoints.forEach((val, idx) => {
@@ -49,7 +49,7 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 		  navigator.geolocation.getCurrentPosition(position => {
 			  this.lat = position.coords.latitude;
 			  this.lng = position.coords.longitude;
-			  this.geo.getLocations(80, [this.lat, this.lng])
+			  this.geo.getLocations(150, [this.lat, this.lng])
 		  });
 	  }
   }
