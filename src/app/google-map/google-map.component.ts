@@ -7,7 +7,7 @@ import { GeoService } from '../geo.service';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent implements OnInit, OnDestroy {
-	
+
   lat: number;
   lng: number;
   markers: any;
@@ -20,13 +20,13 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 	  this.subscription = this.geo.hits
           .subscribe(hits => this.markers = hits)
 	  this.seedDatabase()
-	  
+
   }
-  
+
   ngOnDestroy() {
     this.subscription.unsubscribe()
   }
-  
+
   private seedDatabase() {
     let dummyPoints = [
       [38.1, -77.1],

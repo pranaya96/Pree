@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         let credential = response.credential;
         let user = response.user;
         console.log(response);
-        this.router.navigate(["user"]);
+        this.router.navigate(["user/home"]);
       })
       .catch(error => {
         this.user.loginSuccess = false;
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .signInWithGoogle()
       .then(response => {
-        this.router.navigate(["user"]);
+        this.router.navigate(["user/home"]);
       })
       .catch(err => console.log(err));
   }
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .signInWithFacebook()
       .then(response => {
-        this.router.navigate(["user"]);
+        this.router.navigate(["user/home"]);
       })
       .catch(err => console.log(err));
   }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-	googleMapsKey: "AIzaSyDK42Pv2GVQedC3c0HEntn8Dh1cDPVBXHE",
+    googleMapsKey: "AIzaSyDK42Pv2GVQedC3c0HEntn8Dh1cDPVBXHE",
     apiKey: "AIzaSyBaW5O0sRjGJ0nadHDuQhiOkzZ74Y6V7EY",
     authDomain: "pree-27bcd.firebaseapp.com",
     databaseURL: "https://pree-27bcd.firebaseio.com",
