@@ -34,7 +34,6 @@ import { AgmCoreModule } from "@agm/core";
 import { GoogleMapComponent } from "./google-map/google-map.component";
 import { RegisterBusinessComponent } from "./register-business/register-business.component";
 import { MyBusinessProfileComponent } from "./user/my-business-profile/my-business-profile.component";
-import { AddEventComponent } from './user/my-business-profile/add-event/add-event.component';
 import { SetDelComponent } from './user/settings/set-del/set-del.component';
 import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
 import { EventsComponent } from "./user/home/events/events.component";
@@ -54,7 +53,7 @@ import { EventsComponent } from "./user/home/events/events.component";
     RegisterBusinessComponent,
     MyBusinessProfileComponent,
     AddEventComponent,
-    SetDelComponent
+    SetDelComponent,
     EventsComponent
   ],
   imports: [
