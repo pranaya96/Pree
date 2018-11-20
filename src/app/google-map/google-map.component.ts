@@ -35,7 +35,6 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 			  this.lat = position.coords.latitude;
 			  this.lng = position.coords.longitude;
 			  this.geo.getLocations(this.radius.getRadius(), [this.lat, this.lng]);
-			  console.log(this.geo.hits.getValue());
 		  });
 	  }
   }

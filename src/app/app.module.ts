@@ -16,7 +16,7 @@ import { RouterModule } from "@angular/router";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { routes } from "./app-routing.module";
 import { StartUpComponent } from "./start-up/start-up.component";
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import {
   MatDatepickerModule,
