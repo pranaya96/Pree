@@ -31,6 +31,7 @@
     "firebase": "^5.5.8",
     "font-awesome": "^4.7.0",
     "geofire": "github:firebase/geofire-js",
+    "ngx-pagination": "^3.2.1",
     "node-sass": "^4.9.4",
     "rxjs": "~6.2.0",
     "rxjs-compat": "^6.3.3",
