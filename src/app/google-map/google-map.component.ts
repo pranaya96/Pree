@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GeoService } from '../geo.service';
+import { RadiusService } from '../radius.service';
 
 @Component({
   selector: 'app-google-map',
@@ -13,13 +14,12 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
   markers: any;
   subscription: any;
 
-  constructor(private geo: GeoService) { }
+  constructor(private geo: GeoService, private radius: RadiusService) { }
 
   ngOnInit() {
 	  this.getUserLocation()
 	  this.subscription = this.geo.hits
           .subscribe(hits => this.markers = hits)
-	  this.seedDatabase()
 
   }
 
@@ -27,21 +27,6 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
-  private seedDatabase() {
-    let dummyPoints = [
-      [38.1, -77.1],
-      [38.9, -77.2],
-      [38.3, -77.3],
-      [38.5, -77.0],
-      [37.7, -77.1]
-    ]
-
-    dummyPoints.forEach((val, idx) => {
-      let name = `dummy-location-${idx}`
-      console.log(idx, name, val)
-      this.geo.setLocation(name, val)
-    })
-  }
 
   private getUserLocation() {
 	  //locate the user
@@ -49,7 +34,8 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 		  navigator.geolocation.getCurrentPosition(position => {
 			  this.lat = position.coords.latitude;
 			  this.lng = position.coords.longitude;
-			  this.geo.getLocations(150, [this.lat, this.lng])
+			  this.geo.getLocations(this.radius.getRadius(), [this.lat, this.lng]);
+			  console.log(this.geo.hits.getValue());
 		  });
 	  }
   }
