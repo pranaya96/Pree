@@ -11,7 +11,13 @@
         <div class="eventContainer">
           <form class="eventForm">
             <mat-form-field class="event-full-width">
-              <input matInput placeholder="Event Name" />
+              <input
+                matInput
+                placeholder="Event Name"
+                [(ngModel)]="eventname"
+                name="eventname"
+                required
+              />
             </mat-form-field>
             <table class="event-full-width" cellspacing="0">
               <tr>
@@ -21,6 +27,8 @@
                       matInput
                       placeholder="Event Date"
                       [matDatepicker]="picker"
+                      [(ngModel)]="eventdate"
+                      name="eventdate"
                     />
                     <mat-datepicker-toggle
                       matSuffic
@@ -31,43 +39,66 @@
                 </td>
                 <td>
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Event time" />
+                    <input
+                      matInput
+                      placeholder="Event time"
+                      [(ngModel)]="eventtime"
+                      name="eventtime"
+                      required
+                    />
                   </mat-form-field>
                 </td>
               </tr>
             </table>
 
             <mat-form-field class="event-full-width">
-              <input matInput placeholder="Address" />
+              <input
+                matInput
+                placeholder="Address"
+                [(ngModel)]="eventlocation"
+                name="eventlocation"
+                required
+              />
             </mat-form-field>
             <mat-form-field class="event-full-width">
-              <input matInput placeholder="Event Type" />
+              <input
+                matInput
+                placeholder="Event Type"
+                [(ngModel)]="eventtype"
+                name="eventtype"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field class="event-full-width">
+              <input
+                matInput
+                placeholder="Event Price"
+                [(ngModel)]="eventprice"
+                name="eventprice"
+                required
+              />
             </mat-form-field>
             <div clas="descriptionContainer">
               <mat-form-field class="event-full-width">
-                <input matInput placeholder="Event Description" />
+                <input
+                  matInput
+                  placeholder="Event Description"
+                  [(ngModel)]="eventdescription"
+                  name="eventdescription"
+                  required
+                />
               </mat-form-field>
             </div>
           </form>
+          <mat-card-actions>
+            <div>
+              <button mat-raised-button (click)="addEvent()" color="primary">
+                Add
+              </button>
+            </div>
+          </mat-card-actions>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
   </div>
-
-  <!--
-    <div class="added-event-container">
-      <mat-card *ngFor="let sevent of event">
-        <mat-card-header>
-          <mat-card-title>{{ eventName | async }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ sevent.EventDate | async }}</p>
-          <p>{{ sevent.EventAddress | async }}</p>
-          <p>{{ sevent.EventTime | async }}</p>
-          <p>{{ sevent.EventType | async }}</p>
-          <p>{{ sevent.EventDescription | async }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  -->
 </div>

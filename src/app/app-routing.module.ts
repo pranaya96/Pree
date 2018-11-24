@@ -25,11 +25,7 @@ export const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       {
         path: "my-business-profile",
-        component: MyBusinessProfileComponent,
-        children: [
-          { path: "", redirectTo: "/add-event", pathMatch: "full" },
-          { path: "add-event", component: AddEventComponent }
-        ]
+        component: MyBusinessProfileComponent
       }
     ]
   },

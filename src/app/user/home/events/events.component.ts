@@ -21,7 +21,6 @@ export class EventsComponent implements OnInit {
       this.event = events;
       console.log("event list works");
       console.log(this.event);
-      console.log(this.event[0]);
       (error: any) => {
         console.log("error", error);
       };
