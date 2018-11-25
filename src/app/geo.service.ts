@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
 
-import * as GeoFire from "geofire";
-//import { GeoFire } from "geofire";
+import { GeoFire } from "geofire";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -16,7 +15,7 @@ export class GeoService {
 
   constructor(private db: AngularFireDatabase) {
     /// Reference database location for GeoFire
-    this.dbRef = this.db.list("/locations");
+    this.dbRef = this.db.list("/Events");
     this.geoFire = new GeoFire(this.dbRef.query.ref);
   }
 
@@ -31,6 +30,7 @@ export class GeoService {
   /// Queries database for nearby locations
   /// Maps results to the hits BehaviorSubject
   getLocations(radius: number, coords: Array<number>) {
+    let flag = true;
     this.geoFire
       .query({
         center: coords,
@@ -42,9 +42,14 @@ export class GeoService {
           distance: distance
         };
 
-        let currentHits = this.hits.value;
-        currentHits.push(hit);
-        this.hits.next(currentHits);
+        if (flag === true) {
+          let currentHits = [];
+          flag = false;
+        } else {
+          let currentHits = this.hits.value;
+          currentHits.push(hit);
+          this.hits.next(currentHits);
+        }
       });
   }
 }

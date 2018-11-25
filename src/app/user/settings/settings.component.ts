@@ -1,5 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { RadiusService } from '../../radius.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,10 +9,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class SettingsComponent implements OnInit {
 	
+	radius: number;
+	
 	ngOnInit() {
   }
 
-  constructor(public dialog:MatDialog){}
+  constructor(public dialog:MatDialog, private rad: RadiusService){}
 
   
   deleteAcc(): void {
@@ -24,6 +27,10 @@ export class SettingsComponent implements OnInit {
       console.log('The dialog was closed');
       
     });
+  }
+  
+  radiusSetting() {
+	  this.rad.setRadius(this.radius);
   }
 	
 }
