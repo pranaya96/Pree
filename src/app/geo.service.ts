@@ -42,15 +42,14 @@ export class GeoService {
           location: location,
           distance: distance
         };
-
+        let currentHits = [];
         if (flag === true) {
-          let currentHits = [];
           flag = false;
         } else {
           let currentHits = this.hits.value;
-		}
-          currentHits.push(hit);
-          this.hits.next(currentHits);
+        }
+        currentHits.push(hit);
+        this.hits.next(currentHits);
       });
   }
 }

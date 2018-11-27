@@ -8,7 +8,6 @@ import { Router } from "@angular/router";
 import { finalize } from "rxjs/operators";
 import { Observable } from "rxjs/Observable";
 import { MatDatepickerInputEvent } from "@angular/material";
-import {} from 'googlemaps';
 
 @Component({
   selector: "app-add-event",

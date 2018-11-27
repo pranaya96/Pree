@@ -1,26 +1,82 @@
-<div class="added-event-container">
-  <mat-card class="currentEvents"> Current Events </mat-card>
-
-  <mat-card
-    class="example-card"
+<!-- <div class="eventpage-container"> -->
+<!--
+  <div
+    class="event-container"
     *ngFor="
       let sevent of (allEvent
         | paginate: { itemsPerPage: numPerPage, currentPage: p })
     "
   >
-    <mat-card-header>
-      <mat-card-title class="center" fxLayoutAlign="center center">{{
+    <mat-card class="event" fxLayoutAlign="center center">
+      <div class="image-container">
+        <img
+          class="event-image"
+          mat-card-image
+          src="{{sevent.eventPhotoUrl }}"
+        />
+      </div>
+      <mat-card-header>
+        <mat-card-title>{{ sevent.eventName }}</mat-card-title>
+        <mat-card-subtitle>{{ sevent.eventType }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <h5>DESCRIPTION</h5>
+        {{ sevent.eventDescription }}
+        <h5>LOCATION</h5>
+        {{ sevent.eventLocation }}
+        <h5>DATE AND TIME</h5>
+        {{ sevent.eventTime }} {{ sevent.eventDate }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button type="button">Add to my Calendar!</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+-->
+
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+</head>
+
+<div class="added-event-container">
+  <mat-card class="currentEvents"> Current Events </mat-card>
+
+  <mat-card
+    class="example-card z-depth-5"
+    *ngFor="
+      let sevent of (allEvent
+        | paginate: { itemsPerPage: numPerPage, currentPage: p })
+    "
+  >
+    <mat-card-header [ngStyle]="{ 'background-color': 'aquamarine' }">
+      <!-- -   [style.backgroundColor]="'aquamarine'" -->
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title [ngStyle]="{ 'font-size': '24px' }">{{
         sevent.eventName
       }}</mat-card-title>
+
+      <!-- class="center" fxLayoutAlign="center center" -->
+
+      <!-- Name of the business which posts the event -->
+      <mat-card-subtitle>{{ sevent.businessName }}</mat-card-subtitle>
     </mat-card-header>
+    <img class="image center" mat-card-image src="{{sevent.eventPhotoUrl}}" />
     <mat-card-content>
-      <p>Event Date: {{ sevent.eventDate }}</p>
-      <p>Address: {{ sevent.eventAddress }}</p>
-      <p>Time: {{ sevent.eventTime }}</p>
-      <p>Event Type: This is a {{ sevent.eventType }} type of event!</p>
-      <p>Description: {{ sevent.eventDescription }}</p>
-      <button mat-raised-button type="button">Add to my Calendar!</button>
+      <h5>DESCRIPTION</h5>
+      {{ sevent.eventDescription }}
+      <h5>LOCATION</h5>
+      {{ sevent.eventLocation }}
+      <h5>DATE AND TIME</h5>
+      {{ sevent.eventTime }} {{ sevent.eventDate }}
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="button" color="accent">
+        Add to my Calendar!
+      </button>
+    </mat-card-actions>
   </mat-card>
 
   <pagination-controls
