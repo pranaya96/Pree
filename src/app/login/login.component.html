@@ -1,30 +1,51 @@
 <div class="emailCardHolder">
-    <mat-card class="login-card">
-        <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <form class="loginForm">
-                <div class="loginEmailHolder">
-                    <mat-form-field class="LoginUserEmail">
-                        <input matInput placeholder="Email or Username" [(ngModel)]="user.email" name="username"
-                            required>
-                        <mat-error *ngIf="user.invalid">{{errorMessage}}</mat-error>
-                    </mat-form-field>
-                </div>
-                <div class=loginPasswordHolder>
-                    <mat-form-field class="loginPassword">
-                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password"
-                            name="password" required>
-                    </mat-form-field>
-                </div>
-            </form>
-        </mat-card-content>
-        <mat-card-actions>
-            <div><button mat-raised-button (click)="signInWithEmail()" color="primary">Login</button></div>
-            <div> <button mat-raised-button (click)="signInWithGoogle()" color="accent">Sign in With Google</button></div>
-            <div><button mat-raised-button (click)="signInWithFacebook()" color="warn">Sign in With Facebook</button></div>
-        </mat-card-actions>
-        <div *ngIf="!user.loginSucess">{{errorMessage}}</div>
-    </mat-card>
+  <mat-card class="login-card">
+    <mat-card-header> <mat-card-title>Login</mat-card-title> </mat-card-header>
+    <mat-card-content>
+      <form class="loginForm">
+        <div class="loginEmailHolder">
+          <mat-form-field class="LoginUserEmail">
+            <input
+              matInput
+              placeholder="Email or Username"
+              [(ngModel)]="user.email"
+              name="username"
+              required
+            />
+            <mat-error *ngIf="user.invalid">{{ errorMessage }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="loginPasswordHolder">
+          <mat-form-field class="loginPassword">
+            <input
+              matInput
+              placeholder="Password"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="user.password"
+              name="password"
+              required
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <div>
+        <button mat-raised-button (click)="signInWithEmail()" color="primary">
+          Login
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button (click)="signInWithGoogle()" color="accent">
+          Sign in With Google
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button (click)="signInWithFacebook()" color="warn">
+          Sign in With Facebook
+        </button>
+      </div>
+    </mat-card-actions>
+    <div *ngIf="!user.loginSucess">{{ errorMessage }}</div>
+  </mat-card>
 </div>

@@ -18,10 +18,8 @@ export class MyBusinessProfileComponent implements OnInit {
   ngOnInit() {
     this.userService.getuserInfo().subscribe(user => {
       this.userInfo = user;
-      console.log("ok");
-      console.log(this.userInfo[0]);
     });
-    this.userService.getEvents().subscribe(events => {
+    this.userService.getBusinessUserEvents().subscribe(events => {
       this.event = events;
       console.log("userin business-profile");
       console.log(this.event);

@@ -90,6 +90,36 @@
               </mat-form-field>
             </div>
           </form>
+          <div>
+            <mat-card-actions>
+              <input
+                #fileInput
+                type="file"
+                (change)="chooseFiles($event)"
+                style="display:none;"
+              />
+            </mat-card-actions>
+            <div [hidden]="!uploadPercent">
+              <mat-progress-bar
+                mode="determinate"
+                value="{{uploadPercent | async}}"
+              >
+              </mat-progress-bar>
+            </div>
+
+            <div [hidden]="!image"><img [src]="image || ''" /></div>
+          </div>
+          <mat-card-actions>
+            <div>
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="fileInput.click()"
+              >
+                Upload Image
+              </button>
+            </div>
+          </mat-card-actions>
           <mat-card-actions>
             <div>
               <button mat-raised-button (click)="addEvent()" color="primary">

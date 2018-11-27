@@ -27,7 +27,10 @@ import {
   MatNativeDateModule,
   MatOptionModule,
   MatSelectModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatProgressBarModule
 } from "@angular/material";
 import { HeaderComponent } from "./user/header/header.component";
 import { HomeComponent } from "./user/home/home.component";
@@ -68,10 +71,13 @@ import { GeocodingService } from './geocoding.service';
     MatExpansionModule,
     MatOptionModule,
     MatCheckboxModule,
+    MatIconModule,
     BrowserModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     FormsModule,
+    MatProgressBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features

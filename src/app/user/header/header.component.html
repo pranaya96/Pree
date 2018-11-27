@@ -1,15 +1,22 @@
-<div class="headerContainer">
-  <div class="navComponent">
-    <nav class="navbar">
-      <a [routerLink]="['home']" routerLinkActive="active">Events</a>
-      <a
-        *ngIf="isbusiness"
-        [routerLink]="['my-business-profile']"
-        routerLinkActive="active"
-        >Business Profile</a
-      >
-      <a [routerLink]="['settings']" routerLinkActive="active">Settings</a>
-      <button (click)="logout()">Log out</button>
-    </nav>
-  </div>
+<div class="navComponent">
+  <nav class="navbar">
+    <ul class="navigation">
+      <li><a [routerLink]="['home']" routerLinkActive="active">Events</a></li>
+      <li>
+        <a
+          *ngIf="isbusiness"
+          [routerLink]="['my-business-profile']"
+          routerLinkActive="active"
+          >Business Profile</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['settings']" routerLinkActive="active">Settings</a>
+      </li>
+      <span class="spacer"></span>
+      <button class="logout-button" mat-icon-button (click)="logout()">
+        <mat-icon class="white-icon">power_settings_new</mat-icon>
+      </button>
+    </ul>
+  </nav>
 </div>

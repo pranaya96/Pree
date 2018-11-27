@@ -31,7 +31,12 @@ export class UserServiceService {
     this.User = this.user.valueChanges();
     return this.User;
   }
-  getEvents() {
+  getBusinessUserEvents() {
+    this.events = this.db.list(`Events/${this.userId}`);
+    this.Event = this.events.valueChanges();
+    return this.Event;
+  }
+  getEventsForBusinessUser() {
     this.events = this.db.list("Events");
     this.Event = this.events.valueChanges();
     return this.Event;

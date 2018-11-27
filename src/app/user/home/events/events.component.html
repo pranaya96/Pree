@@ -4,23 +4,21 @@
   <mat-card
     class="example-card"
     *ngFor="
-      let sevent of (event
+      let sevent of (allEvent
         | paginate: { itemsPerPage: numPerPage, currentPage: p })
     "
   >
     <mat-card-header>
       <mat-card-title class="center" fxLayoutAlign="center center">{{
-        sevent.EventName
+        sevent.eventName
       }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-card>Event Date: {{ sevent.EventDate }}</mat-card>
-      <mat-card>Address: {{ sevent.EventAddress }}</mat-card>
-      <mat-card>Time: {{ sevent.EventTime }}</mat-card>
-      <mat-card
-        >Event Type: This is a {{ sevent.EventType }} type of event!</mat-card
-      >
-      <mat-card>Description: {{ sevent.EventDescription }}</mat-card>
+      <p>Event Date: {{ sevent.eventDate }}</p>
+      <p>Address: {{ sevent.eventAddress }}</p>
+      <p>Time: {{ sevent.eventTime }}</p>
+      <p>Event Type: This is a {{ sevent.eventType }} type of event!</p>
+      <p>Description: {{ sevent.eventDescription }}</p>
       <button mat-raised-button type="button">Add to my Calendar!</button>
     </mat-card-content>
   </mat-card>
