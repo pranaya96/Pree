@@ -5,6 +5,7 @@ import { Event } from "../../../DataModels/event";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Router } from "@angular/router";
 import { MatDatepickerInputEvent } from "@angular/material";
+import {} from 'googlemaps';
 
 @Component({
   selector: "app-add-event",
@@ -28,7 +29,7 @@ export class AddEventComponent implements OnInit {
     public db: AngularFireDatabase,
     public userService: UserServiceService,
     public afAuth: AngularFireAuth,
-    public router: Router
+    public router: Router,
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) this.userId = user.uid;
@@ -50,7 +51,7 @@ export class AddEventComponent implements OnInit {
     this.currEvent.eventType = this.eventtype;
     this.currEvent.eventPhotoUrl = this.eventphotoUrl;
     this.currEvent.eventDescription = this.eventdescription;
-    this.currEvent.eventPhotoUrl = "";
+    this.currEvent.eventPhotoUrl = ""; 
     this.db.list(`Events/${this.userId}`).push(this.currEvent);
     this.router.navigate(["user/home"]);
   }

@@ -34,7 +34,9 @@ export class GoogleMapComponent implements OnInit, OnDestroy {
 		  navigator.geolocation.getCurrentPosition(position => {
 			  this.lat = position.coords.latitude;
 			  this.lng = position.coords.longitude;
+			  console.log(this.radius.getRadius())
 			  this.geo.getLocations(this.radius.getRadius(), [this.lat, this.lng]);
+			  console.log(this.markers)
 		  });
 	  }
   }
