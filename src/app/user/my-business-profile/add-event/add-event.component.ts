@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
 import { UserServiceService } from "src/app/services/user-service.service";
 import { Event } from "../../../DataModels/event";
+import { AngularFireAuth } from "angularfire2/auth";
+import { Router } from "@angular/router";
+import { MatDatepickerInputEvent } from "@angular/material";
 
 @Component({
   selector: "app-add-event",
@@ -10,21 +13,45 @@ import { Event } from "../../../DataModels/event";
 })
 export class AddEventComponent implements OnInit {
   event: Event[];
-  eventName: string;
-  myImage: HTMLElement;
+  currEvent: Event = new Event();
+  eventname: string;
+  eventdate: Date;
+  eventlocation: string;
+  eventtime: string;
+  eventtype: string;
+  eventprice: string;
+  eventphotoUrl: string;
+  eventdescription: string;
+  userId: string;
 
   constructor(
-    public af: AngularFireDatabase,
-    public userService: UserServiceService
-  ) {}
+    public db: AngularFireDatabase,
+    public userService: UserServiceService,
+    public afAuth: AngularFireAuth,
+    public router: Router
+  ) {
+    this.afAuth.authState.subscribe(user => {
+      if (user) this.userId = user.uid;
+    });
+  }
 
   ngOnInit() {
     this.userService.getEvents().subscribe(events => {
       this.event = events;
-      this.eventName = this.event["1"]["EventName"];
-      console.log("event list works");
-      console.log(this.event);
-      console.log(this.eventName);
     });
+  }
+
+  addEvent() {
+    this.currEvent.eventName = this.eventname;
+    this.currEvent.eventDate = this.eventdate.toDateString();
+    this.currEvent.eventLocation = this.eventlocation;
+    this.currEvent.eventTime = this.eventtime;
+    this.currEvent.eventPrice = this.eventprice;
+    this.currEvent.eventType = this.eventtype;
+    this.currEvent.eventPhotoUrl = this.eventphotoUrl;
+    this.currEvent.eventDescription = this.eventdescription;
+    this.currEvent.eventPhotoUrl = "";
+    this.db.list(`Events/${this.userId}`).push(this.currEvent);
+    this.router.navigate(["user/home"]);
   }
 }

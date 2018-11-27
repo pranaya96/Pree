@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
     this.user = {
       name: "",
       email: "",
-      loginSuccess: true
+      loginSuccess: true,
+      isbusiness: Boolean
     };
   }
   ngOnInit() {}
@@ -27,10 +28,9 @@ export class LoginComponent implements OnInit {
   signInWithEmail(email, password) {
     this.authService
       .signInRegular(this.user.email, this.user.password)
-      .then(response => {
-        let credential = response.credential;
-        let user = response.user;
-        console.log(response);
+      .then(() => {
+        this.user.isbusiness = this.user.isBusiness;
+        console.log(this.user.isbusiness);
         this.router.navigate(["user/home"]);
       })
       .catch(error => {

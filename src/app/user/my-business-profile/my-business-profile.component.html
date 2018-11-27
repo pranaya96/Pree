@@ -1,13 +1,33 @@
 <div class="profile-container" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="profile-card" layout="column" layout-align="center center">
+  <mat-card
+    class="profile-card"
+    *ngFor="let user of userInfo"
+    layout="column"
+    layout-align="center center"
+  >
     <div class="image-container">
       <img mat-card-image src="../../assets/restaurant img.jpg" />
     </div>
     <mat-card-header>
-      <mat-card-title>Red Hen Restaurant</mat-card-title>
+      <mat-card-title>{{ user.name }}</mat-card-title>
       <mat-card-subtitle>Italian Restro</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content> <p>Now this works!</p> </mat-card-content>
   </mat-card>
-  <router-outlet></router-outlet>
+  <app-add-event></app-add-event>
+  <div class="added-event-container">
+    <p>My Events</p>
+    <mat-card *ngFor="let sevent of event">
+      <mat-card-header>
+        <mat-card-title>{{ sevent.EventName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ sevent.EventDate }}</p>
+        <p>{{ sevent.EventAddress }}</p>
+        <p>{{ sevent.EventTime }}</p>
+        <p>{{ sevent.EventType }}</p>
+        <p>{{ sevent.EventDescription }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

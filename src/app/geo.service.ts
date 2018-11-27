@@ -30,7 +30,7 @@ export class GeoService {
   /// Queries database for nearby locations
   /// Maps results to the hits BehaviorSubject
   getLocations(radius: number, coords: Array<number>) {
-	let flag = true;
+    let flag = true;
     this.geoFire
       .query({
         center: coords,
@@ -42,14 +42,14 @@ export class GeoService {
           distance: distance
         };
 
-		if (flag === true){
-		  let currentHits = [];
-		  flag = false;
-		} else {
+        if (flag === true) {
+          let currentHits = [];
+          flag = false;
+        } else {
           let currentHits = this.hits.value;
-		}
-        currentHits.push(hit);
-        this.hits.next(currentHits);
+          currentHits.push(hit);
+          this.hits.next(currentHits);
+        }
       });
   }
 }
