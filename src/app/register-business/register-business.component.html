@@ -5,60 +5,105 @@
     </mat-card-header>
     <mat-card-content>
       <form class="registerForm">
-       
         <div class="registerNameHolder">
           <mat-form-field class="registerUserName">
-            <input matInput placeholder="Business Name" [(ngModel)]="fullName" name="fullName" required>
+            <input
+              matInput
+              placeholder="Business Name"
+              [(ngModel)]="fullName"
+              name="fullName"
+              required
+            />
           </mat-form-field>
         </div>
-        
+
         <div class="registerAddressHolder">
           <mat-form-field class="registerUserAddress">
-            <input matInput placeholder="Address" [(ngModel)]="userAddress" name="address" required>
+            <input
+              matInput
+              placeholder="Address"
+              [(ngModel)]="userAddress"
+              name="address"
+              required
+            />
           </mat-form-field>
         </div>
-        
+
         <div class="registerPhoneNumberHolder">
           <mat-form-field class="registerUserPhoneNumber">
-            <input matInput placeholder="Phone Number" [(ngModel)]="userPhone" name="phoneNumber" required>
+            <input
+              matInput
+              placeholder="Phone Number"
+              [(ngModel)]="userPhone"
+              name="phoneNumber"
+              required
+            />
           </mat-form-field>
         </div>
 
         <div class="registerBusinessTypeHolder">
           <mat-form-field class="registerUserBusinessType">
-              <mat-select placeholder="Business Type" [(ngModel)]="userBusinessType" name="businessType">
-                  <mat-option *ngFor="let businessType of businessTypes" [value]="businessType.value">
-                    {{businessType.viewValue}}
-                  </mat-option>
-                </mat-select>
+            <mat-select
+              placeholder="Business Type"
+              [(ngModel)]="userBusinessType"
+              name="businessType"
+            >
+              <mat-option
+                *ngFor="let businessType of businessTypes"
+                [value]="businessType.value"
+              >
+                {{ businessType.viewValue }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
 
         <div class="registerBusinessDescriptionHolder">
-            <mat-form-field class="registerUserBusinessDescription">
-                <textarea matInput placeholder="Business Description"[(ngModel)]="userBusinessDescription" name="businessDescription" required ></textarea>
-            </mat-form-field>
-          </div>
+          <mat-form-field class="registerUserBusinessDescription">
+            <textarea
+              matInput
+              placeholder="Business Description"
+              [(ngModel)]="userBusinessDescription"
+              name="businessDescription"
+              required
+            ></textarea>
+          </mat-form-field>
+        </div>
 
         <div class="registerEmailHolder">
           <mat-form-field class="registerUserEmail">
-            <input matInput placeholder="Email" [(ngModel)]="userEmail" name="email" required>
+            <input
+              matInput
+              placeholder="Email"
+              [(ngModel)]="userEmail"
+              name="email"
+              required
+            />
           </mat-form-field>
         </div>
 
-        <div class=registerPasswordHolder>
+        <div class="registerPasswordHolder">
           <mat-form-field class="registerPassword">
-            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="userPassword"
-              name="password" required>
+            <input
+              matInput
+              placeholder="Password"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="userPassword"
+              name="password"
+              required
+            />
           </mat-form-field>
         </div>
-
-        
-
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="onSubmit(userEmail, userPassword)" color="primary">Sign Up</button>
+      <button
+        mat-raised-button
+        (click)="onSubmit(userEmail, userPassword)"
+        color="primary"
+      >
+        Sign Up
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

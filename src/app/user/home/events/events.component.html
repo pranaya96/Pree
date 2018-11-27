@@ -1,39 +1,56 @@
 <div class="added-event-container">
-<mat-card class="currentEvents"> Current Events </mat-card>
+  <mat-card class="currentEvents"> Current Events </mat-card>
 
-
-  <mat-card class= "example-card" *ngFor="let sevent of event | paginate: { itemsPerPage: numPerPage, currentPage: p }">
+  <mat-card
+    class="example-card"
+    *ngFor="
+      let sevent of (event
+        | paginate: { itemsPerPage: numPerPage, currentPage: p })
+    "
+  >
     <mat-card-header>
-      <mat-card-title class= "center" fxLayoutAlign="center center">{{ sevent.EventName }}</mat-card-title>
+      <mat-card-title class="center" fxLayoutAlign="center center">{{
+        sevent.EventName
+      }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-card>Event Date: {{ sevent.EventDate }}</mat-card>
       <mat-card>Address: {{ sevent.EventAddress }}</mat-card>
       <mat-card>Time: {{ sevent.EventTime }}</mat-card>
-      <mat-card>Event Type: This is a {{ sevent.EventType }} type of event!</mat-card>
+      <mat-card
+        >Event Type: This is a {{ sevent.EventType }} type of event!</mat-card
+      >
       <mat-card>Description: {{ sevent.EventDescription }}</mat-card>
-	  <button mat-raised-button type="button" >Add to my Calendar!</button>
+      <button mat-raised-button type="button">Add to my Calendar!</button>
     </mat-card-content>
   </mat-card>
-  
-  <pagination-controls align="center" (pageChange)="p = $event"></pagination-controls> <!--Controls which page the user would like to be on-->
-  
+
+  <pagination-controls
+    align="center"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+  <!-- Controls which page the user would like to be on -->
+
   <section>
-	<div class="Increase"> <!--Button to increase the amount of search results per page-->
-	  <button mat-raised-button type="button" (click)="moreResults()">Increase Results Per Page by 10</button>
-	  </div>
-	  
-	  <div class="Decrease"><!--Button to decrease the amount of search results per page-->
-	  <button mat-raised-button type="button" (click)="lessResults()"> Decrease Results Per Page by 10</button>
-	  </div>
+    <div class="Increase">
+      <!-- Button to increase the amount of search results per page -->
+      <button mat-raised-button type="button" (click)="moreResults()">
+        Increase Results Per Page by 10
+      </button>
+    </div>
 
+    <div class="Decrease">
+      <!-- Button to decrease the amount of search results per page -->
+      <button mat-raised-button type="button" (click)="lessResults()">
+        Decrease Results Per Page by 10
+      </button>
+    </div>
 
-	<p align="left"> <!--Show user how many search results there are on the page at the moment-->
-	Results per Page : {{numPerPage}}
-	</p>
-	
-
-</section>
-
-
+    <p align="left">
+      <!--
+        Show user how many search results there are on the page at the moment
+      -->
+      Results per Page : {{ numPerPage }}
+    </p>
+  </section>
 </div>

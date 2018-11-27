@@ -3,10 +3,8 @@ import { AuthService } from "../services/auth.service";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AppRoutingModule } from "../app-routing.module";
 import { Router } from "@angular/router";
-import {User} from "../DataModels/user";
-import {AngularFireDatabase} from 'angularfire2/database';
-
-
+import { User } from "../DataModels/user";
+import { AngularFireDatabase } from "angularfire2/database";
 
 @Component({
   selector: "app-register",
@@ -16,7 +14,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 export class RegisterComponent implements OnInit {
   currUser: User = new User();
 
-  fullName:string = "";
+  fullName: string = "";
   //userId:string = "";
   userAddress: string = "";
   userPhone: string = "";
@@ -28,8 +26,11 @@ export class RegisterComponent implements OnInit {
   userEmail: string = "";
   userPassword: string = "";
 
-
-  constructor(private af: AngularFireAuth, private router: Router, private db: AngularFireDatabase) {}
+  constructor(
+    private af: AngularFireAuth,
+    private router: Router,
+    private db: AngularFireDatabase
+  ) {}
 
   ngOnInit() {}
 
@@ -46,10 +47,10 @@ export class RegisterComponent implements OnInit {
         this.currUser.userPicUrl = "";
         this.currUser.businessDescription = "";
         this.currUser.emailAddress = userEmail;
-        this.db.list('users').push(this.currUser)
-        
+        this.db.list(`users/${response.user.uid}`).push(this.currUser);
+
         console.log(response);
-        this.router.navigate(["user"]);
+        this.router.navigate(["user/home"]);
       })
       .catch(error => console.log(error));
   }

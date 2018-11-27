@@ -9,8 +9,8 @@ import { User } from "../../DataModels/user";
   styleUrls: ["./my-business-profile.component.css"]
 })
 export class MyBusinessProfileComponent implements OnInit {
-  hide: boolean = true;
-  userInfo: User[];
+  event: Array<any[]>;
+  userInfo: User;
   constructor(
     public af: AngularFireDatabase,
     public userService: UserServiceService
@@ -19,11 +19,12 @@ export class MyBusinessProfileComponent implements OnInit {
     this.userService.getuserInfo().subscribe(user => {
       this.userInfo = user;
       console.log("ok");
-      console.log(user);
+      console.log(this.userInfo[0]);
     });
-  }
-  addEvent() {
-    console.log("bye");
-    this.hide = false;
+    this.userService.getEvents().subscribe(events => {
+      this.event = events;
+      console.log("userin business-profile");
+      console.log(this.event);
+    });
   }
 }
