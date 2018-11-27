@@ -1,46 +1,42 @@
-<div class="start-page">
-  <div class="startCardHolder">
-    <mat-card class="startUp-card">
-      <mat-card-header class="card-header">
-        <div><mat-card-title class="card-title"> Pree </mat-card-title></div>
-      </mat-card-header>
-      <mat-card-content class="cardContent">
-        <img class="imgCard" src="../../assets/Logo.png" />
-        <div class="button-group">
-          <mat-card-actions>
-            <div>
-              <button
-                class="button"
-                mat-raised-button
-                [routerLink]="['/login']"
-                color="primary"
-              >
-                Log In
-              </button>
-            </div>
-            <div>
-              <button
-                class="button"
-                mat-raised-button
-                [routerLink]="['/register']"
-                color="primary"
-              >
-                Register As Individual
-              </button>
-            </div>
-            <div>
-              <button
-                class="button"
-                mat-raised-button
-                [routerLink]="['/register-business']"
-                color="primary"
-              >
-                Register As Business
-              </button>
-            </div>
-          </mat-card-actions>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+<div class="startCardHolder" fxLayoutAlign="center">
+  <mat-card class="startUp-card">
+    <mat-card-header>
+      <div>
+        <mat-card-title>
+          Welcome to Pree! Please select an option!</mat-card-title
+        >
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="imgCard"><img src="../../assets/preeSPLogo.png" /></div>
+
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-actions>
+          <div>
+            <button mat-raised-button [routerLink]="['/login']" color="primary">
+              Log In
+            </button>
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              [routerLink]="['/register']"
+              color="primary"
+            >
+              Register As Individual
+            </button>
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              [routerLink]="['/register-business']"
+              color="primary"
+            >
+              Register As Business
+            </button>
+          </div>
+        </mat-card-actions>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -45,6 +45,7 @@ export class EventsComponent implements OnInit {
   moreResults() {
     this.numPerPage = this.numPerPage + 10;
   }
+
   lessResults() {
     if (this.numPerPage > 10) {
       this.numPerPage = this.numPerPage - 10;
