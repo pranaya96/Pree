@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
     this.authService
       .signInRegular(this.user.email, this.user.password)
       .then(() => {
-        this.user.isbusiness = this.user.isBusiness;
-        console.log(this.user.isbusiness);
         this.router.navigate(["user/home"]);
       })
       .catch(error => {

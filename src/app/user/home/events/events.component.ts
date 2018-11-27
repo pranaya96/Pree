@@ -9,6 +9,7 @@ import { eventNames } from "cluster";
   styleUrls: ["./events.component.css"]
 })
 export class EventsComponent implements OnInit {
+  allEvent: Event[] = [];
   event: Array<any[]>;
   eventName: String;
   numPerPage: number = 10;
@@ -18,13 +19,26 @@ export class EventsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.getEvents().subscribe(events => {
+    this.userService.getBusinessUserEvents().subscribe(events => {
       this.event = events;
       console.log("event list works");
       console.log(this.event);
       (error: any) => {
         console.log("error", error);
       };
+    });
+
+    this.userService.getEventsForBusinessUser().subscribe(events => {
+      let tempEvent: Array<any[]>;
+      tempEvent = events;
+      let tempallEventList: Event[] = [];
+      tempEvent.forEach(function(value) {
+        let eachEvent = value;
+        Object.keys(eachEvent).forEach(function(key) {
+          tempallEventList.push(eachEvent[key]);
+        });
+      });
+      this.allEvent = tempallEventList;
     });
   }
 
