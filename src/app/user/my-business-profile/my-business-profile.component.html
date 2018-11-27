@@ -1,37 +1,53 @@
 <div class="profile-container" fxLayout="row" fxLayoutAlign="center center">
   <mat-card
-    class="profile-card"
+    class="profile-card z-depth-5"
     *ngFor="let user of userInfo"
     layout="column"
     layout-align="center center"
   >
+    <mat-card-header>
+      <mat-card-title [ngStyle]="{ 'font-size': '24px' }">{{
+        user.name
+      }}</mat-card-title>
+      <mat-card-subtitle>{{ user.businessType }} </mat-card-subtitle>
+      <mat-card-subtitle>{{ user.phoneNumber }} </mat-card-subtitle>
+      <mat-card-subtitle>{{ user.address }} </mat-card-subtitle>
+    </mat-card-header>
     <div class="image-container">
       <img mat-card-image src="{{ user.userPicUrl }}" />
     </div>
-    <mat-card-header>
-      <mat-card-title>{{ user.name }}</mat-card-title>
-      <mat-card-subtitle>{{ user.businessType }} </mat-card-subtitle>
-    </mat-card-header>
     <mat-card-content>
       <p>{{ user.businessDescription }}</p>
-      <p>{{ user.phoneNumber }}</p>
-      <p>{{ user.address }}</p>
     </mat-card-content>
   </mat-card>
   <app-add-event></app-add-event>
   <div class="added-event-container">
     <p>My Events</p>
-    <mat-card *ngFor="let sevent of event">
-      <mat-card-header>
-        <mat-card-title>{{ sevent.eventName }}</mat-card-title>
+    <mat-card class="z-depth-5" *ngFor="let sevent of event">
+      <mat-card-header [ngStyle]="{ 'background-color': 'aquamarine' }">
+        <!-- -   [style.backgroundColor]="'aquamarine'" -->
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title [ngStyle]="{ 'font-size': '24px' }">{{
+          sevent.eventName
+        }}</mat-card-title>
+
+        <!-- class="center" fxLayoutAlign="center center" -->
+
+        <!-- Name of the business which posts the event -->
+        <mat-card-subtitle>{{ sevent.businessName }}</mat-card-subtitle>
       </mat-card-header>
+      <img class="image" mat-card-image src="{{sevent.eventPhotoUrl}}" />
       <mat-card-content>
-        <p>{{ sevent.eventDate }}</p>
-        <p>{{ sevent.eventAddress }}</p>
-        <p>{{ sevent.eventTime }}</p>
-        <p>{{ sevent.eventType }}</p>
-        <p>{{ sevent.eventDescription }}</p>
+        <p><b>Event Date:</b> {{ sevent.eventDate }}</p>
+        <p><b>Address:</b> {{ sevent.eventLocation }}</p>
+        <p><b>Time:</b>{{ sevent.eventTime }}</p>
+        <p><b>Description:</b> {{ sevent.eventDescription }}</p>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button type="button" color="accent">
+          Add to my Calendar!
+        </button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

@@ -1,13 +1,34 @@
-.profile-container {
-  padding: 20px 500px;
+/* .profile-container {
+  padding: 50px;
   max-width: 500px;
   max-height: 300px;
   background-size: 50%;
-}
+} */
 .profile-container .profile-card {
-  max-height: 1200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-block-end: 10px;
+  margin-block-start: 10px;
+  margin-inline-start: 100px;
+  margin-inline-end: 100px;
+  max-width: 80%;
 }
 .profile-cotainer .image-container {
   max-height: 5px;
   max-width: 500px;
 }
+
+.z-depth-5 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  height: 400px; /* adjust as needed */
+  object-fit: cover;
+}
+
+/* .example-header-image {
+	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+	background-size: contain;
+  } */
