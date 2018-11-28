@@ -15,7 +15,7 @@ export class GeoService {
 
   constructor(private db: AngularFireDatabase) {
     /// Reference database location for GeoFire
-    this.dbRef = this.db.list("/Events");
+    this.dbRef = this.db.list("/locations");
     this.geoFire = new GeoFire(this.dbRef.query.ref);
   }
 
@@ -38,6 +38,7 @@ export class GeoService {
       })
       .on("key_entered", (key, location, distance) => {
         let hit = {
+		  key: key,
           location: location,
           distance: distance
         };

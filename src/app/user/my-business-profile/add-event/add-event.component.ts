@@ -37,7 +37,7 @@ export class AddEventComponent implements OnInit {
     private storage: AngularFireStorage,
     public userService: UserServiceService,
     public afAuth: AngularFireAuth,
-    public router: Router
+    public router: Router,
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) this.userId = user.uid;
