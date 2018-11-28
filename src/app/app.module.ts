@@ -42,7 +42,7 @@ import { MyBusinessProfileComponent } from "./user/my-business-profile/my-busine
 import { AddEventComponent } from "./user/my-business-profile/add-event/add-event.component";
 import { SetDelComponent } from "./user/settings/set-del/set-del.component";
 import { EventsComponent } from "./user/home/events/events.component";
-import { GeocodingService } from './geocoding.service';
+//import { GeocodingService } from './geocoding.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +90,7 @@ import { GeocodingService } from './geocoding.service';
       apiKey: environment.firebase.googleMapsKey
     })
   ],
-  providers: [AuthService, GeocodingService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
